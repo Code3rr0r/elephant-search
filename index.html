@@ -10,12 +10,12 @@
   <div id="browser">
     <!-- Search Bar -->
     <div id="search-bar">
-      <input id="search-input" type="text" placeholder="Search the web..." />
+      <input id="search-input" type="text" placeholder="Search with Google..." />
       <button id="search-button">Search</button>
     </div>
 
-    <!-- Content Frame -->
-    <webview id="webview" src="https://www.elephantsearch.com" style="width: 100%; height: 100vh;"></webview>
+    <!-- Content Frame (webview) -->
+    <webview id="webview" src="https://www.google.com" style="width: 100%; height: 100vh;"></webview>
   </div>
 
   <script>
@@ -27,8 +27,8 @@
     searchButton.addEventListener('click', () => {
       const query = searchInput.value;
       if (query) {
-        // Redirect to Elephant Search with the search query
-        webview.loadURL(`https://www.elephantsearch.com/?q=${query}`);
+        // Redirect to Google with the search query
+        webview.loadURL(`https://www.google.com/search?q=${encodeURIComponent(query)}`);
       }
     });
   </script>
