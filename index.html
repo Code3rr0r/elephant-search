@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elephant Search Browser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="browser">
+    <!-- Search Bar -->
+    <div id="search-bar">
+      <input id="search-input" type="text" placeholder="Search the web..." />
+      <button id="search-button">Search</button>
+    </div>
+
+    <!-- Content Frame -->
+    <webview id="webview" src="https://www.elephantsearch.com" style="width: 100%; height: 100vh;"></webview>
+  </div>
+
+  <script>
+    // JavaScript for handling the search functionality
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+    const webview = document.getElementById('webview');
+
+    searchButton.addEventListener('click', () => {
+      const query = searchInput.value;
+      if (query) {
+        // Redirect to Elephant Search with the search query
+        webview.loadURL(`https://www.elephantsearch.com/?q=${query}`);
+      }
+    });
+  </script>
+</body>
+</html>
